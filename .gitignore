@@ -33,6 +33,13 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# yo-angular recommendations
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+
 # =========================
 # Operating System Files
 # =========================
