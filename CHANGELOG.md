@@ -2,13 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
-### [Unreleased][unreleased]
+[unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/1.2.0...HEAD
 
-- ...
+### [v1.2.0] - 2016-05-12
 
-### [v1.0.0] - 2016-01-01
+- Minor refactoring and changes
+- Better documentation
+- More comprehensive tests
 
-- ...
+[v1.2.0]: https://github.com/khalidsalomao/simple-query-string/compare/1.1.0...1.2.0
 
-[unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/v1.0.0...HEAD
-[v0.0.1]: https://github.com/khalidsalomao/simple-query-string/compare/v0.0.0...v1.0.0
+
+### [v1.0.0] - 2016-05-11
+
+- npm package
+- bower package
+- documentation changes
+
+[v1.1.0]: https://github.com/khalidsalomao/simple-query-string/compare/1.0.0...1.1.0
+
+### [v1.0.0] - 2016-05-10
+
+- first public release

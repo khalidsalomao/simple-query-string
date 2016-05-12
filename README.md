@@ -23,7 +23,7 @@ $ bower i simple-query-string
 
 **Browser - CDN**
 ```
-<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/master/src/simplequerystring.min.js"></script>
+<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.0/src/simplequerystring.min.js"></script>
 ```
 
 
@@ -72,6 +72,7 @@ $ bower i simple-query-string
     var parsed = qs.parse("key=val&param=1");
     
     console.log(parsed["key"]);
+    console.log(parsed["param"]);
 
 ```
 
@@ -79,7 +80,7 @@ $ bower i simple-query-string
 * browser
 
 ```
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/master/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.0/src/simplequerystring.js"></script>
     <script>
         var parsed = simpleQueryString.parse("key=val&param=1");
             
@@ -120,7 +121,7 @@ $ bower i simple-query-string
 * browser
 
 ```
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/master/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.0/src/simplequerystring.js"></script>
     <script>
         var str = simpleQueryString.stringify({ param: 1, p2: true, p3: false });
             
