@@ -1,4 +1,4 @@
-/*! simple-query-string v1.1.0 - MIT license */
+/*! simple-query-string v1.2.0 - MIT license */
 var simpleQueryString = (function () {
     "use strict";
 
@@ -128,7 +128,7 @@ var simpleQueryString = (function () {
 
             // enumerate key/values
             for (i = 0; i < keys.length; i++) {
-                k = keys[i];
+                k = encode(keys[i]);
                 v = obj[k];
                 // check value type
                 if (v !== undefined) {
@@ -137,14 +137,12 @@ var simpleQueryString = (function () {
                         for (j = 0; j < v.length; ++j) {
                             v2 = v[j];
                             if (j !== undefined) {
-                                l2[l2.length] = j === null ? encode(k) : encode(k) + '=' + encode(v2);
+                                l2[l2.length] = (j === null) ? k : k + '=' + encode(v2);
                             }
                         }
                         list[list.length] = l2.join('&');
-                    } else if (v === null) {
-                        list[list.length] = k;
                     } else {
-                        list[list.length] = encode(k) + '=' + encode(v);
+                        list[list.length] = (v === null) ? k : k + '=' + encode(v);
                     }
                 }
             }
