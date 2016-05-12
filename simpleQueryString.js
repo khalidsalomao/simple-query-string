@@ -35,6 +35,16 @@ var simpleQueryString = (function () {
         if (JSON && JSON.stringify) { return encodeURIComponent(JSON.stringify(v)); }
         return encodeURIComponent(v.toString());
     }
+    
+    function queryStringSet () {
+        /**
+         * check if parsed query string result set is empty
+         */
+        queryStringSet.prototype.isEmpty = function () {
+            for (var key in this) { return true; }
+            return false;
+        };
+    }
 
     /**
      * simple Query String utilities
@@ -50,7 +60,7 @@ var simpleQueryString = (function () {
             var dic, i, s, key, val, e;
 
             // create an object with no prototype
-            dic = Object.create(null);
+            dic = new queryStringSet ();//Object.create(null);
 
             // step 0: sanity checks
             if (typeof str !== 'string') { return dic; }
