@@ -19,22 +19,49 @@ A simple query string encoder and decoder.
     `simpleQueryString.parse("http://example.org/test/?key=val&param=1")`
 
 
+
 * support for location.hash 
     
     `simpleQueryString.parse(location.hash)`
+
 
 * support for location.search
     
     `simpleQueryString.parse(location.search)`
 
+
 * anchor detection
     
     `simpleQueryString.parse("http://example.org/test/?key=val&param=1#anchor")`
+
 
 * array detection
     
     `simpleQueryString.parse("myarr=1&myarr=2&myarr=3&myarr=4")`
 
+
+* node.js module
+
+```
+    var queryString = require('./simpleQueryString');
+
+    var parsed = queryString.parse("key=val&param=1");
+    
+    console.log(parsed["key"]);
+
+```
+
+
+* browser
+
+```
+    <script src="./simpleQueryString.js"></script>
+    <script>
+        var parsed = simpleQueryString.parse("key=val&param=1");
+            
+        console.log(parsed["key"]);
+    </script>
+```
 
 #### Query String Encoding
 
@@ -42,13 +69,40 @@ A simple query string encoder and decoder.
 
     `simpleQueryString.stringify({ key: "val", param: 1 })`
 
+
 * type detection
 
     `simpleQueryString.stringify({ param: 1, p2: true, p3: false })`
 
+
 * array detection
 
     `simpleQueryString.stringify({ myarr: [1,2,3,4] })`
+
+
+
+* node.js module
+
+```
+    var queryString = require('./simpleQueryString');
+
+    var str = queryString.stringify({ param: 1, p2: true, p3: false });
+    
+    console.log(str);
+
+```
+
+
+* browser
+
+```
+    <script src="./simpleQueryString.js"></script>
+    <script>
+        var str = simpleQueryString.stringify({ param: 1, p2: true, p3: false });
+            
+        console.log(str);
+    </script>
+```
 
 
 ### Getting Started
@@ -79,6 +133,16 @@ var qStr = simpleQueryString.stringify(p);
 
 
 ### How to Test
+
+
+#### Install dependencies
+
+`npm install bower -g`
+
+`bower update`
+
+
+#### Run tests
 
 Run the tests by opening `index.html`.
 
