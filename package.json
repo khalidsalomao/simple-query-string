@@ -1,6 +1,6 @@
 {
     "name": "simple-query-string",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Simple way to parse and stringify URL query strings",
     "main": "simpleQueryString.js",
     "scripts": {
