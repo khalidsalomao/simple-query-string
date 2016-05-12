@@ -119,13 +119,15 @@ var simpleQueryString = (function () {
         stringify: function (obj) {
             var i, j, k, v, keys, list = [], l2, v2;
 
+            // sanity check
+            if ((typeof obj !== 'object' && typeof obj !== 'function') || obj === null) { return ''; }
+
             // get obj keys
             keys = getKeys(obj);
 
-            // sanity checks
-            if (!keys) { return ''; }
-            if ((typeof obj !== 'object' && typeof obj !== 'function') || obj === null) { return ''; }
-
+            // sanity check
+            if (!keys || !keys.length) { return ''; }
+            
             // enumerate key/values
             for (i = 0; i < keys.length; i++) {
                 k = encode(keys[i]);

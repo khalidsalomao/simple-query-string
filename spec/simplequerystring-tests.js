@@ -42,6 +42,14 @@ describe('simpleQueryString()', function () {
 
         expect(obj["var"]).to.equal("val");
     });
+    
+    it('parse validation: parameters as array', function () {
+        var obj = simpleQueryString.parse('my=1&my=2&k1=v1&my=3&my=4');
+
+        expect(obj["k1"]).to.equal("v1");
+        expect(obj["my"].length).to.equal(4);
+        expect(obj["my"][2]).to.equal("3");
+    });
 
     it('stringify validation: array', function () {
         var str = simpleQueryString.stringify({ my: [1, 2, 3, 4] });
