@@ -1,7 +1,6 @@
 {
 	"name" : "simple-query-string",
-	"version" : '1.0.0',
-	"private" : false,
+	"version" : "1.0.0",
 	"dependencies" : {},
 	"devDependencies" : {
 		"chai" : "latest",
@@ -28,6 +27,7 @@
 	},
 	"ignore" : [
 		"bower_*",
+        "bower_components",
 		"spec",
 		".*",
 		"gruntfile.js",
