@@ -1,40 +1,37 @@
 {
-    "name": "simple-query-string",
-    "version": '1.0.0',
-    "private": false,
-    "dependencies": {},
-    "devDependencies": {
-        "chai": "latest",
-        "mocha": "latest",
-        "lodash": "latest"
-    },
-    "main": [
-    "simpleQueryString.js"
-  ],
-    "moduleType": [
-    "globals",
-    "node"
-  ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Khalid Salomão",
-            "homepage": "https://github.com/khalidsalomao"
-        }
-],
-    "homepage": "https://github.com/khalidsalomao/simple-query-string",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/khalidsalomao/simple-query-string.git"
-    },
-    "ignore": [
-        "bower_*",
-        "spec",
-        ".bowerrc",
-        ".*",
-        "bower.json",
-        "gruntfile.js",
-        "package.json",
-        "index.html"
-    ]
+	"name" : "simple-query-string",
+	"version" : '1.0.0',
+	"private" : false,
+	"dependencies" : {},
+	"devDependencies" : {
+		"chai" : "latest",
+		"mocha" : "latest",
+		"lodash" : "latest"
+	},
+	"main" : [
+		"simpleQueryString.js"
+	],
+	"moduleType" : [
+		"globals",
+		"node"
+	],
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Khalid Salomão",
+			"homepage" : "https://github.com/khalidsalomao"
+		}
+	],
+	"homepage" : "https://github.com/khalidsalomao/simple-query-string",
+	"repository" : {
+		"type" : "git",
+		"url" : "https://github.com/khalidsalomao/simple-query-string.git"
+	},
+	"ignore" : [
+		"bower_*",
+		"spec",
+		".*",
+		"gruntfile.js",
+		"package.json",
+		"index.html"
+	]
 }
