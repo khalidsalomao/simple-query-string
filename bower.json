@@ -1,6 +1,7 @@
 {
     "name": "simple-query-string",
     "version": '1.0.0',
+    "private": false,
     "dependencies": {},
     "devDependencies": {
         "chai": "latest",
