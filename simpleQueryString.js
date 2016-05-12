@@ -1,4 +1,4 @@
-/*! simpleQueryString v0.5.0 - MIT license */
+/*! simpleQueryString v1.0.0 - MIT license */
 var simpleQueryString = (function () {
     "use strict";
 
