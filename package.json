@@ -1,0 +1,36 @@
+{
+    "name": "simple-query-string",
+    "version": "1.0.0",
+    "description": "Simple way to parse and stringify URL query strings",
+    "main": "simpleQueryString.js",
+    "scripts": {
+        "test": "index.html"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/khalidsalomao/simple-query-string.git"
+    },
+    "keywords": [
+    "decode",
+    "encode",
+    "stringify",
+    "parse",
+    "uri",
+    "url",
+    "parameter",
+    "param",
+    "qs",
+    "string",
+    "query",
+    "querystring",
+    "query-string",
+    "browser",
+    "simple-helpers"
+  ],
+    "author": "Khalid Salomão (https://github.com/khalidsalomao)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/khalidsalomao/simple-query-string/issues"
+    },
+    "homepage": "https://github.com/khalidsalomao/simple-query-string#readme"
+}

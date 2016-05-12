@@ -1,6 +1,8 @@
 # [simple-query-string](https://github.com/khalidsalomao/simple-query-string)
 
-A simple query string encoder and decoder.
+Simple way to parse and stringify URL query strings.
+
+Utility javascript methods to encode and decode query string parameters.
 
 
 ### Features
