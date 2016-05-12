@@ -13,7 +13,7 @@ describe('simpleQueryString()', function () {
         expect(simpleQueryString.parse()).to.be.a('object');
         expect(simpleQueryString.parse(null)).to.be.a('object');
         
-        var obj = simpleQueryString.parse('http://www.whatever.com');
+        var obj = simpleQueryString.parse('http://www.whatever.com#kk');
         expect(obj.isEmpty()).to.equal(true);
         expect(_.keys(obj).length).to.equal(0);
     });

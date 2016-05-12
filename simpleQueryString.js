@@ -49,7 +49,7 @@ var simpleQueryString = (function () {
     /**
      * simple Query String utilities
      */
-    var simpleQueryString = {       
+    var simpleQueryString = {     
 
         /**
          * parse a query string.
