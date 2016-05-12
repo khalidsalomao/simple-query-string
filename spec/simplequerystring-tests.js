@@ -1,24 +1,38 @@
-/* global simpleQueryString, describe, it, expect, should */
+/* global simple-query-string tests, describe, it, expect, should */
 
 describe('simpleQueryString()', function () {
     'use strict';
 
     it('exists', function () {
         expect(simpleQueryString).to.be.a('object');
-
     });
     
     it('parse validation: empty', function () {
         expect(simpleQueryString.parse('')).to.be.a('object');
         expect(simpleQueryString.parse()).to.be.a('object');
         expect(simpleQueryString.parse(null)).to.be.a('object');
+    });
+    
+    it('parse validation: full url without query string', function () {
+        var obj = simpleQueryString.parse('http://example.org');
+        expect(obj).to.be.a('object');
+        expect(_.keys(obj).length).to.equal(0);
         
-        var obj = simpleQueryString.parse('http://www.whatever.com#kk');
+        obj = simpleQueryString.parse('http://example.org/teste');
+        expect(obj).to.be.a('object');
+        expect(_.keys(obj).length).to.equal(0);
+        
+        obj = simpleQueryString.parse('//example.org/teste');
+        expect(obj).to.be.a('object');
+        expect(_.keys(obj).length).to.equal(0);
+        
+        obj = simpleQueryString.parse('//example.org/teste#anchor');
+        expect(obj).to.be.a('object');
         expect(_.keys(obj).length).to.equal(0);
     });
 
     it('parse validation: with anchor', function () {
-        var obj = simpleQueryString.parse('http://www.whatever.com?var=val#anchor');
+        var obj = simpleQueryString.parse('http://example.org?var=val#anchor');
 
         expect(obj["var"]).to.equal("val");
     });

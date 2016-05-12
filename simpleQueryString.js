@@ -1,4 +1,4 @@
-/*! simpleQueryString v1.0.0 - MIT license */
+/*! simple-query-string v1.1.0 - MIT license */
 var simpleQueryString = (function () {
     "use strict";
 
@@ -23,12 +23,18 @@ var simpleQueryString = (function () {
         return list;
     }    
     
+    /**
+     * internal method: uri string decoding
+     */
     function decode(v) {
         if (v === undefined) { return null; }
         if (v) { return decodeURIComponent(v); }
         return v;
     }
 
+    /**
+     * internal method: uri string encoding
+     */
     function encode(v) {
         if (v === undefined || v === null) { return ''; }
         if (typeof v === 'string') { return encodeURIComponent(v); }
@@ -115,9 +121,9 @@ var simpleQueryString = (function () {
 
             // get obj keys
             keys = getKeys(obj);
-            if (!keys) { return ''; }
 
-            // sanity check
+            // sanity checks
+            if (!keys) { return ''; }
             if ((typeof obj !== 'object' && typeof obj !== 'function') || obj === null) { return ''; }
 
             // enumerate key/values
@@ -142,6 +148,7 @@ var simpleQueryString = (function () {
                     }
                 }
             }
+            // concatenate final string
             return list.join('&');
         }
     };
