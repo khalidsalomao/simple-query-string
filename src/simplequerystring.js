@@ -1,11 +1,29 @@
 /*! simple-query-string v1.2.0 - MIT license */
-var simpleQueryString = (function () {
-    "use strict";
+
+//
+// Cross module loader - UMD (Universal Module Definition)
+// Supported: Node, AMD, Browser globals
+//
+;(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(factory);
+    } else if (typeof module === 'object' && module.exports) {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports, like Node.
+        module.exports = factory();
+    } else {
+        // Browser globals (root is window)
+        root.simpleQueryString = factory();
+    }
+}(this, function () {
+    
+    'use strict';
 
     // is Array polyfill: https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
     if (!Array.isArray) {
         Array.isArray = function (vArg) {
-            return Object.prototype.toString.call(vArg) === "[object Array]";
+            return Object.prototype.toString.call(vArg) === '[object Array]';
         };
     }
     
@@ -43,9 +61,9 @@ var simpleQueryString = (function () {
     }
 
     /**
-     * simple Query String utilities
+     * return our simple Query String object
      */
-    var simpleQueryString = {     
+    return {     
 
         /**
          * parse a query string.
@@ -153,11 +171,4 @@ var simpleQueryString = (function () {
         }
     };
     
-    return simpleQueryString;
-}());
-
-// node.js (CommonJS-like) module support
-if (typeof module === 'object' && module.exports) {
-    module.exports = simpleQueryString;
-}
-
+}));
