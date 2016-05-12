@@ -14,7 +14,6 @@ describe('simpleQueryString()', function () {
         expect(simpleQueryString.parse(null)).to.be.a('object');
         
         var obj = simpleQueryString.parse('http://www.whatever.com#kk');
-        expect(obj.isEmpty()).to.equal(true);
         expect(_.keys(obj).length).to.equal(0);
     });
 
