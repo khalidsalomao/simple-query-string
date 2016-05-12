@@ -45,7 +45,7 @@ Utility javascript methods to encode and decode query string parameters.
 * node.js module
 
 ```
-    var queryString = require('./simpleQueryString');
+    var queryString = require('simple-query-string');
 
     var parsed = queryString.parse("key=val&param=1");
     
@@ -86,7 +86,7 @@ Utility javascript methods to encode and decode query string parameters.
 * node.js module
 
 ```
-    var queryString = require('./simpleQueryString');
+    var queryString = require('simple-query-string');
 
     var str = queryString.stringify({ param: 1, p2: true, p3: false });
     
