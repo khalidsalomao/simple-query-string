@@ -1,6 +1,6 @@
 # [simple-query-string](https://github.com/khalidsalomao/simple-query-string)
 
-> A simple query string encoder and decoder.
+A simple query string encoder and decoder.
 
 
 ### Features
@@ -66,6 +66,14 @@ var obj = simpleQueryString.parse("http://example.org/test/?key=val&param=1");
 
 Encode example:
 ```
+var p = {
+    key1: true,
+    key2: [0, 1, 2],
+    key3: "string",
+    key4: 4321
+};
+
+var qStr = simpleQueryString.stringify(p);
 
 ```
 
