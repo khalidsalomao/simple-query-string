@@ -24,13 +24,13 @@ $ bower install simple-query-string
 
 **Download**
 
-* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.2/simplequerystring.js)
+* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.3/simplequerystring.js)
 
-* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.2/simplequerystring.min.js)
+* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.3/simplequerystring.min.js)
 
 **Browser - CDN**
 ```
-<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.2/src/simplequerystring.min.js"></script>
+<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.3/src/simplequerystring.min.js"></script>
 ```
 
 
@@ -88,7 +88,7 @@ $ bower install simple-query-string
 * browser
 
 ```
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.2/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.3/src/simplequerystring.js"></script>
     <script>
         var parsed = simpleQueryString.parse("key=val&param=1");
             
@@ -100,6 +100,11 @@ $ bower install simple-query-string
 * `for..in` safe
 
     Safe to be used in a for in loop. The object is created with `Object.create(null)`.
+
+
+* safely deals with invalid/empty input
+
+    `simpleQueryString.parse(null) // equals to {}`
 
 
 * fast
@@ -138,7 +143,7 @@ $ bower install simple-query-string
 * browser
 
 ```
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.2/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.3/src/simplequerystring.js"></script>
     <script>
         var str = simpleQueryString.stringify({ param: 1, p2: true, p3: false });
             
@@ -146,7 +151,16 @@ $ bower install simple-query-string
     </script>
 ```
 
+* safely ignore functions and prototype properties
 
+    `simpleQueryString.stringify({ p1: function(){ return 0; } }) // equals to ''`
+
+
+* safely deals with invalid/empty input
+
+    `simpleQueryString.stringify(null) // equals to ''`
+
+    
 * fast
 
 
@@ -190,6 +204,8 @@ $ npm install mocha -g
 
 
 ##### Run tests in node.js
+
+Use npm to run the test script 'spec/simplequerystring-test.js'
 
 ```
 $ npm test
