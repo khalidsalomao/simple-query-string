@@ -1,5 +1,9 @@
 # [simple-query-string](https://github.com/khalidsalomao/simple-query-string)
 
+[![Build Status](https://travis-ci.org/khalidsalomao/simple-query-string.svg?branch=master)](https://travis-ci.org/khalidsalomao/simple-query-string)
+
+
+
 Fast and simple way to parse and stringify URL query strings.
 
 Utility javascript methods to encode and decode query string parameters with extreme performance and low memory usage.
