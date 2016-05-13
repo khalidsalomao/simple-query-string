@@ -33,6 +33,7 @@
     "homepage": "https://github.com/khalidsalomao/simple-query-string#readme",
     "devDependencies" : {
         "chai" : "*",
-        "lodash" : "*"
+        "lodash" : "*",
+        "mocha" : "*"
     }
 }
