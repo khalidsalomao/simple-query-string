@@ -8,6 +8,7 @@ Utility javascript methods to encode and decode query string parameters with ext
 -----
 ### Installation
 
+
 **NPM**
 
 ```
@@ -24,9 +25,11 @@ $ bower install simple-query-string
 
 **Download**
 
+
 * [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.3/simplequerystring.js)
 
 * [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.3/simplequerystring.min.js)
+
 
 **Browser - CDN**
 ```
@@ -37,42 +40,43 @@ $ bower install simple-query-string
 ----
 ### Features
 
+
 #### Query String Decoding
 
-* query string parsing
+
+* **query string parsing**
 
     `simpleQueryString.parse("key=val&param=1")`
 
 
-* full url detection
+* **full url** detection
 
     There is no need to use url.split('?')[1] or any other code, just put the entire string!
 
     `simpleQueryString.parse("http://example.org/test/?key=val&param=1")`
 
 
-
-* support for location.hash 
+* support for **location.hash**
     
     `simpleQueryString.parse(location.hash)`
 
 
-* support for location.search
+* support for **location.search**
     
     `simpleQueryString.parse(location.search)`
 
 
-* anchor detection
+* **anchor detection**
     
-    `simpleQueryString.parse("http://example.org/test/?key=val&param=1#anchor")`
+    `simpleQueryString.parse("http://example.org/test/?key=val&param=1#anchor") // #anchor will be ignored`
 
 
-* array detection
+* **array detection**
     
-    `simpleQueryString.parse("myarr=1&myarr=2&myarr=3&myarr=4")`
+    `simpleQueryString.parse("myarr=1&myarr=2&myarr=3&myarr=4") // myarr: [1,2,3,4]`
 
 
-* node.js module
+* **node.js** module
 
 ```
     var qs = require('simple-query-string');
@@ -85,7 +89,7 @@ $ bower install simple-query-string
 ```
 
 
-* browser
+* **browser**
 
 ```
     <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.3/src/simplequerystring.js"></script>
@@ -97,38 +101,39 @@ $ bower install simple-query-string
 ```
 
 
-* `for..in` safe
+* **`for..in` safe**
 
     Safe to be used in a for in loop. The object is created with `Object.create(null)`.
 
 
-* safely deals with invalid/empty input
+* **safely** deals with invalid/empty input
 
     `simpleQueryString.parse(null) // equals to {}`
 
 
-* fast
+* **fast**
     
+
 
 #### Query String Encoding
 
-* properties detection
+
+* **properties detection**
 
     `simpleQueryString.stringify({ key: "val", param: 1 })`
 
 
-* type detection
+* **type detection**
 
     `simpleQueryString.stringify({ param: 1, p2: true, p3: false })`
 
 
-* array detection
+* **array detection**
 
-    `simpleQueryString.stringify({ myarr: [1,2,3,4] })`
+    `simpleQueryString.stringify({ myarr: [1,2,3,4] }) // myarr=1&myarr=2&myarr=3&myarr=4`
 
 
-
-* node.js module
+* **node.js** module
 
 ```
     var qs = require('simple-query-string');
@@ -140,7 +145,7 @@ $ bower install simple-query-string
 ```
 
 
-* browser
+* **browser**
 
 ```
     <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.3/src/simplequerystring.js"></script>
@@ -151,17 +156,18 @@ $ bower install simple-query-string
     </script>
 ```
 
-* safely ignore functions and prototype properties
+
+* **safely** ignore functions and prototype properties
 
     `simpleQueryString.stringify({ p1: function(){ return 0; } }) // equals to ''`
 
 
-* safely deals with invalid/empty input
+* **safely** deals with invalid/empty input
 
     `simpleQueryString.stringify(null) // equals to ''`
 
     
-* fast
+* **fast**
 
 
 ### Getting Started
