@@ -1,4 +1,4 @@
-/*! simple-query-string v1.2.1 - MIT license */
+/*! simple-query-string v1.2.3 - MIT license */
 
 //
 // Cross module loader - UMD (Universal Module Definition)
