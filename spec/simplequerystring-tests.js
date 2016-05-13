@@ -1,5 +1,11 @@
 /* global simple-query-string tests, describe, it, expect, should */
 
+// if these vars are undefined, assume we are in node.js
+if (!expect) { var expect = require('chai').expect; }
+if (!simpleQueryString) { var simpleQueryString = require('../src/simplequerystring.js'); }
+if (!_) { var _ = require("lodash"); }
+
+// run tests!
 describe('simpleQueryString()', function () {
     'use strict';
 

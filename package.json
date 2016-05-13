@@ -1,10 +1,10 @@
 {
     "name": "simple-query-string",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Fast and simple way to parse and stringify URL query strings",
     "main": "src/simplequerystring.js",
     "scripts": {
-        "test": "index.html"
+        "test": "mocha ./spec/simplequerystring-tests.js"
     },
     "repository": {
         "type": "git",

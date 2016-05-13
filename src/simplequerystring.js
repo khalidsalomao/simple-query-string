@@ -1,4 +1,4 @@
-/*! simple-query-string v1.2.0 - MIT license */
+/*! simple-query-string v1.2.1 - MIT license */
 
 //
 // Cross module loader - UMD (Universal Module Definition)
@@ -35,7 +35,7 @@
             list = [], key;
         for (key in obj) {
             if (hasOwnProperty.call(obj, key)) {
-                list[list.length] = key;
+                list.push(key);
             }
         }
         return list;
@@ -71,10 +71,9 @@
          * @param {string} str - the string containing the query string to be parsed.
          */
         parse: function (str) {
-            var dic, i, s, key, val, e;
-
+            var i;
             // create an object with no prototype
-            dic = Object.create(null);
+            var dic = Object.create(null);
 
             // step 0: sanity checks
             if (typeof str !== 'string') { return dic; }
@@ -103,20 +102,20 @@
 
             for (i = 0; i < parts.length; ++i) {
                 // step 3: split key/value pair
-                s = parts[i].replace(/\+/g, ' ').split('=');
+                var s = parts[i].replace(/\+/g, ' ').split('=');
 
                 // key
-                key = decode(s.shift());
+                var key = decode(s.shift());
                 if (!key) { continue; }
 
                 // Firefox (pre 40) decodes `%3D` to `=`
-                val = s.length > 1 ? s.join('=') : s[0];
+                var val = s.length > 1 ? s.join('=') : s[0];
 
                 // missing `=` should be `null`:
                 val = decode(val);
 
                 // check existing dic and add
-                e = dic[key];
+                var e = dic[key];
 
                 // step 4: add to dictionary
                 if (e === undefined) {
@@ -135,34 +134,35 @@
          * @param {object} obj - the object that will have its properties parsed into a key/value string.
          */
         stringify: function (obj) {
-            var i, j, k, v, keys, list = [], l2, v2;
-
+            var i, j;
             // sanity check
             if ((typeof obj !== 'object' && typeof obj !== 'function') || obj === null) { return ''; }
 
             // get obj keys
-            keys = getKeys(obj);
+            var keys = getKeys(obj);
 
             // sanity check
             if (!keys || !keys.length) { return ''; }
             
+            var list = [];
+            
             // enumerate key/values
             for (i = 0; i < keys.length; i++) {
-                k = encode(keys[i]);
-                v = obj[k];
+                var k = encode(keys[i]);
+                var v = obj[k];
                 // check value type
                 if (v !== undefined) {
                     if (Array.isArray(v)) {
-                        l2 = [];
+                        var l2 = [];
                         for (j = 0; j < v.length; ++j) {
-                            v2 = v[j];
+                            var v2 = v[j];
                             if (j !== undefined) {
-                                l2[l2.length] = (j === null) ? k : k + '=' + encode(v2);
+                                l2.push((j === null) ? k : k + '=' + encode(v2));
                             }
                         }
-                        list[list.length] = l2.join('&');
+                        list.push(l2.join('&'));
                     } else {
-                        list[list.length] = (v === null) ? k : k + '=' + encode(v);
+                        list.push((v === null) ? k : k + '=' + encode(v));
                     }
                 }
             }

@@ -88,6 +88,15 @@ $ bower i simple-query-string
     </script>
 ```
 
+
+* `for..in` safe
+
+    Safe to be used in a for in loop. The object is created with `Object.create(null)`.
+
+
+* fast
+    
+
 #### Query String Encoding
 
 * properties detection
@@ -128,6 +137,9 @@ $ bower i simple-query-string
         console.log(str);
     </script>
 ```
+
+
+* fast
 
 
 ### Getting Started

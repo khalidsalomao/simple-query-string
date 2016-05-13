@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 [unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/1.2.0...HEAD
 
+### [v1.2.1] - 2016-05-13
+
+- bug fix when stringify multiple arrays
+
+
 ### [v1.2.0] - 2016-05-12
 
 - Minor refactoring and changes
