@@ -1,4 +1,5 @@
 .*
 spec
 bower*
-index.html
+node_modules
+test*
