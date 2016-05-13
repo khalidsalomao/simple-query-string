@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 [unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/1.2.0...HEAD
 
 
+### [v1.2.3] - 2016-05-13
+
+- stringify: ignores properties that are functions
+- more tests refactoring
+
+
 ### [v1.2.2] - 2016-05-13
 
 - documentation updated
