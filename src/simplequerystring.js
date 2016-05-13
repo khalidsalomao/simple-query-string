@@ -150,8 +150,8 @@
             for (i = 0; i < keys.length; i++) {
                 var k = encode(keys[i]);
                 var v = obj[k];
-                // check value type
-                if (v !== undefined) {
+                // check value type (ignore undefined and function)
+                if (v !== undefined && typeof v !== 'function') {
                     if (Array.isArray(v)) {
                         var l2 = [];
                         for (j = 0; j < v.length; ++j) {
@@ -162,7 +162,12 @@
                         }
                         list.push(l2.join('&'));
                     } else {
-                        list.push((v === null) ? k : k + '=' + encode(v));
+                        // try to encode
+                        if (v !== null) {
+                            v = encode(v);
+                        }
+                        // check final v value and add to list
+                        list.push((v === null || v === undefined) ? k : k + '=' + v);
                     }
                 }
             }
