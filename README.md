@@ -31,14 +31,14 @@ $ bower install simple-query-string
 **Download**
 
 
-* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.4/simplequerystring.js)
+* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.5/simplequerystring.js)
 
-* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.4/simplequerystring.min.js)
+* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.5/simplequerystring.min.js)
 
 
 **Browser - CDN**
 ```
-<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.4/src/simplequerystring.min.js"></script>
+<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.5/src/simplequerystring.min.js"></script>
 ```
 
 
@@ -100,7 +100,7 @@ $ bower install simple-query-string
 * **browser**
 
 ```
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.4/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.5/src/simplequerystring.js"></script>
     <script>
         var parsed = simpleQueryString.parse("key=val&param=1");
             
@@ -108,6 +108,14 @@ $ bower install simple-query-string
     </script>
 ```
 
+* **AMD module**
+
+```
+    require(['simple-query-string'], function(qs){
+        var p = qs.parse("key=val&param=1");
+        console.log(p);
+    });
+```
 
 * **`for..in` safe**
 
@@ -163,12 +171,22 @@ $ bower install simple-query-string
 * **browser**
 
 ```
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.4/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.5/src/simplequerystring.js"></script>
     <script>
         var str = simpleQueryString.stringify({ param: 1, p2: true, p3: false });
             
         console.log(str);
     </script>
+```
+
+
+* **AMD module**
+
+```
+    require(['simple-query-string'], function(qs){
+        var str = qs.stringify({ param: 1, p2: true, p3: false });
+        console.log(str);
+    });
 ```
 
 
