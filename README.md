@@ -1,8 +1,12 @@
 # [simple-query-string](https://github.com/khalidsalomao/simple-query-string)
 
-[![Build Status](https://travis-ci.org/khalidsalomao/simple-query-string.svg?branch=master)](https://travis-ci.org/khalidsalomao/simple-query-string)
-
-
+[![Build Status](http://img.shields.io/travis/khalidsalomao/simple-query-string/master.svg?style=flat-square)](https://travis-ci.org/khalidsalomao/simple-query-string "See test builds")
+[![CodeClimate](http://img.shields.io/codeclimate/github/khalidsalomao/simple-query-string.svg?style=flat-square)](https://codeclimate.com/github/khalidsalomao/simple-query-string 
+"CodeClimate")
+[![Codecov](http://img.shields.io/codecov/c/github/khalidsalomao/simple-query-string.svg?style=flat-square)](https://codecov.io/gh/khalidsalomao/simple-query-string)
+[![npm version](http://img.shields.io/npm/v/simple-query-string.svg?style=flat-square)](https://npmjs.org/package/simple-query-string "View this project on npm")
+[![npm downloads](http://img.shields.io/npm/dt/simple-query-string.svg?style=flat-square)](https://npmjs.org/package/simple-query-string "npm downloads")
+[![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/khalidsalomao/simple-query-string/master/LICENSE.txt)
 
 Fast and simple way to parse and stringify URL query strings.
 

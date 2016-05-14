@@ -4,3 +4,8 @@ node_js:
     - "5"
     - "4"
     - "iojs"
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
+addons:
+    code_climate:
+        repo_token: 64992de503d025af5ec4074b837b046114287129ac3d4a518fd8a39b3d133154
