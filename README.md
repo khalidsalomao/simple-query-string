@@ -17,7 +17,7 @@ Utility javascript methods to encode and decode query string parameters with ext
 **NPM**
 
 ```
-$ npm install simple-query-string
+$ npm install simple-query-string --save
 ```
 
 
@@ -37,6 +37,7 @@ $ bower install simple-query-string
 
 
 **Browser - CDN**
+
 ```
 <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.5/src/simplequerystring.min.js"></script>
 ```
