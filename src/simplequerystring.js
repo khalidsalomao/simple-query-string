@@ -1,4 +1,4 @@
-/*! simple-query-string v1.2.3 - MIT license */
+/*! simple-query-string v1.2.4 - MIT license */
 
 //
 // Cross module loader - UMD (Universal Module Definition)
@@ -28,7 +28,10 @@
     }
     
     /**
-     * internal method to encapsulate enumerate keys to avoid optimization problems in v8
+     * Enumerate all object properties, ignoring prototype properties.
+     * Internal method to encapsulate enumerate keys to avoid optimization problems in v8.
+     * 
+     * @param   {object} obj - input object
      */
     function getKeys(obj) {
         var hasOwnProperty = Object.prototype.hasOwnProperty,
@@ -51,7 +54,7 @@
     }
 
     /**
-     * internal method: uri string encoding
+     * internal method: uri string encoding with type convertion to string
      */
     function encode(v) {
         if (v === undefined || v === null) { return ''; }

@@ -1,9 +1,6 @@
 # [simple-query-string](https://github.com/khalidsalomao/simple-query-string)
 
 [![Build Status](http://img.shields.io/travis/khalidsalomao/simple-query-string/master.svg?style=flat-square)](https://travis-ci.org/khalidsalomao/simple-query-string "See test builds")
-[![CodeClimate](http://img.shields.io/codeclimate/github/khalidsalomao/simple-query-string.svg?style=flat-square)](https://codeclimate.com/github/khalidsalomao/simple-query-string 
-"CodeClimate")
-[![Codecov](http://img.shields.io/codecov/c/github/khalidsalomao/simple-query-string.svg?style=flat-square)](https://codecov.io/gh/khalidsalomao/simple-query-string)
 [![npm version](http://img.shields.io/npm/v/simple-query-string.svg?style=flat-square)](https://npmjs.org/package/simple-query-string "View this project on npm")
 [![npm downloads](http://img.shields.io/npm/dt/simple-query-string.svg?style=flat-square)](https://npmjs.org/package/simple-query-string "npm downloads")
 [![GitHub license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://raw.githubusercontent.com/khalidsalomao/simple-query-string/master/LICENSE.txt)
@@ -34,14 +31,14 @@ $ bower install simple-query-string
 **Download**
 
 
-* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.3/simplequerystring.js)
+* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.4/simplequerystring.js)
 
-* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.3/simplequerystring.min.js)
+* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.4/simplequerystring.min.js)
 
 
 **Browser - CDN**
 ```
-<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.3/src/simplequerystring.min.js"></script>
+<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.4/src/simplequerystring.min.js"></script>
 ```
 
 
@@ -50,6 +47,9 @@ $ bower install simple-query-string
 
 
 #### Query String Decoding
+
+
+* **fast**
 
 
 * **query string parsing**
@@ -64,24 +64,24 @@ $ bower install simple-query-string
     `simpleQueryString.parse("http://example.org/test/?key=val&param=1")`
 
 
-* support for **location.hash**
+* **location.hash** support
     
     `simpleQueryString.parse(location.hash)`
 
 
-* support for **location.search**
+* **location.search** support
     
     `simpleQueryString.parse(location.search)`
+
+
+* **array detection**
+
+    `simpleQueryString.parse("myarr=1&myarr=2&myarr=3&myarr=4") // myarr: [1,2,3,4]`
 
 
 * **anchor detection**
     
     `simpleQueryString.parse("http://example.org/test/?key=val&param=1#anchor") // #anchor will be ignored`
-
-
-* **array detection**
-    
-    `simpleQueryString.parse("myarr=1&myarr=2&myarr=3&myarr=4") // myarr: [1,2,3,4]`
 
 
 * **node.js** module
@@ -100,7 +100,7 @@ $ bower install simple-query-string
 * **browser**
 
 ```
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.3/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.4/src/simplequerystring.js"></script>
     <script>
         var parsed = simpleQueryString.parse("key=val&param=1");
             
@@ -112,6 +112,14 @@ $ bower install simple-query-string
 * **`for..in` safe**
 
     Safe to be used in a for in loop. The object is created with `Object.create(null)`.
+    
+```
+    var dic = simpleQueryString.parse("http://example.org/?p1=val&p2=true&p3=3&p4=str");
+    for (var k in dic) {
+        console.log(dic[k]);
+    }
+    
+```
 
 
 * **safely** deals with invalid/empty input
@@ -119,26 +127,25 @@ $ bower install simple-query-string
     `simpleQueryString.parse(null) // equals to {}`
 
 
-* **fast**
-    
-
 
 #### Query String Encoding
+
+* **fast**
 
 
 * **properties detection**
 
-    `simpleQueryString.stringify({ key: "val", param: 1 })`
+    `simpleQueryString.stringify({ key: "val", param: 1 })  // equals to 'key=val&param=1'`
 
 
 * **type detection**
 
-    `simpleQueryString.stringify({ param: 1, p2: true, p3: false })`
+    `simpleQueryString.stringify({ p: 1, p2: true, p3: false }) // equals to 'p=1&p2=true&p3=false'`
 
 
 * **array detection**
 
-    `simpleQueryString.stringify({ myarr: [1,2,3,4] }) // myarr=1&myarr=2&myarr=3&myarr=4`
+    `simpleQueryString.stringify({ myarr: [1,2,3,4] }) // equals to 'myarr=1&myarr=2&myarr=3&myarr=4'`
 
 
 * **node.js** module
@@ -148,7 +155,7 @@ $ bower install simple-query-string
 
     var str = qs.stringify({ param: 1, p2: true, p3: false });
     
-    console.log(str);
+    console.log(str); // equals to 'param=1&p2=true&p3=false'
 
 ```
 
@@ -156,7 +163,7 @@ $ bower install simple-query-string
 * **browser**
 
 ```
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.3/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.4/src/simplequerystring.js"></script>
     <script>
         var str = simpleQueryString.stringify({ param: 1, p2: true, p3: false });
             
@@ -167,15 +174,13 @@ $ bower install simple-query-string
 
 * **safely** ignore functions and prototype properties
 
-    `simpleQueryString.stringify({ p1: function(){ return 0; } }) // equals to ''`
+    `simpleQueryString.stringify({ p1: function(){ return 0; }, p2: 1 }) // equals to 'p2=1'`
 
 
 * **safely** deals with invalid/empty input
 
     `simpleQueryString.stringify(null) // equals to ''`
 
-    
-* **fast**
 
 
 ### Getting Started
