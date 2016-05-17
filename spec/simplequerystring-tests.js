@@ -49,6 +49,15 @@ describe('simple-query-string - parse', function () {
         expect(obj["var"]).to.equal("val");
     });
 
+    it('parse validation: string with spaces', function () {
+        var obj = simpleQueryString.parse('str=my string with double  spaces&str2=my other string&b1=true&nullkey');
+
+        assert.strictEqual(obj["str"], 'my string with double  spaces');
+        assert.strictEqual(obj["str2"], 'my other string');
+        assert.strictEqual(obj["b1"], 'true');
+        assert.isNull(obj["nullkey"]);
+    });
+
     it('parse validation: parameters as array', function () {
         var obj = simpleQueryString.parse('my=1&my=2&k1=v1&my=3&my=4');
 
@@ -145,66 +154,6 @@ describe('simple-query-string - stringify', function () {
         var str = simpleQueryString.stringify(obj);
 
         assert.strictEqual(str, '');
-    });
-
-});
-
-
-describe('simple-query-string - benchmarks', function () {
-    'use strict';
-
-    // increase mocha timeout
-    this.timeout(15000);
-
-    // benchmarks
-    var Benchmark = require('benchmark');
-    if (!Benchmark) return;
-
-    Benchmark.options.initCount = 1;
-    Benchmark.options.maxTime = 1; // secs
-    Benchmark.options.minSamples = 5;
-    Benchmark.options.minTime = 0;
-
-    // console coloring
-    var colors = require('colors/safe');
-
-    it('parse vs stringify', function () {
-      var suite = new Benchmark.Suite();
-      assert.isObject(suite);
-
-      suite.add('parse', function() {
-        simpleQueryString.parse('a1=1&a1=5&a1=6&a1=&a1=&a1=test&a1');
-      })
-      .add('stringify', function() {
-        simpleQueryString.stringify({ p0:0, p1: 1, p2: 2, p3: 10.0001, p4: -9, p5: 0.0001 });
-      })
-      .on('cycle', function(event) { console.log(colors.magenta('    B '), event.target.toString()); })
-      .on('complete', function() { console.log(colors.cyan('    B '), 'Fastest is ' + this.filter('fastest').map('name')); })
-      .run({ 'async': false });
-    });
-
-    it('join vs concat', function () {
-      var suite = new Benchmark.Suite();
-      assert.isObject(suite);
-
-      var data = 'a1=1asdasda&a1=adsasda5&a1=6asdasda&a1=adsasdasasas&a1=adasdasdasdasda&a1=test&a1=adsasdasdasd&a1=asdasdadsas1&a1=5adsasdasdasdasdas&a1=6&a1=&a1=&a1=test&a1'.split('&');
-
-      suite.add('join', function() {
-        var i, list = [];
-        for (i = 0; i < data.length; i++) {
-            list.push(data[i]);
-        }
-        list.join('&');
-      })
-      .add('concat', function() {
-          var i, list = '';
-          for (i = 0; i < data.length; i++) {
-              list += data[i];
-          }
-      })
-      .on('cycle', function(event) { console.log(colors.magenta('    B '), event.target.toString()); })
-      .on('complete', function() { console.log(colors.cyan('    B '), 'Fastest is ' + this.filter('fastest').map('name')); })
-      .run({ 'async': false });
     });
 
 });
