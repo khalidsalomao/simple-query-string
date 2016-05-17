@@ -2,7 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-[unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/1.2.5...HEAD
+
+[unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/1.3.0...HEAD
+
+
+### [unreleased]
+
+- Performance improvement
+- Memory footprint reduced
+- Benchmarks to avoid performance regression
+- Alternative delimiter: URLs embedded in HTML as https://en.wikipedia.org/wiki/Query_string#Structure
+- Improvement in stringify logic for arrays
+
+[v1.3.0]: https://github.com/khalidsalomao/simple-query-string/compare/1.2.5...1.3.0
 
 
 ### [v1.2.5] - 2016-05-14
