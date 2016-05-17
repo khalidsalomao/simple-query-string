@@ -78,8 +78,10 @@ browser: true, node: true, devel: true, mocha: true
          * parse a query string.
          * Can receive as parameter the full url or `url.split('?')[1]` or `location.search` or `location.hash`
          * @param {string} str - the string containing the query string to be parsed.
+         * @param {string} [delimiter] - if undefined (no value) the default ampersand '&' will be the pairs separator.
+         * Else you can provide an alternative separator, for instance the semicolon ';' in case of URLs embedded in HTML.
          */
-        parse: function (str) {
+        parse: function (str, delimiter) {
             var i;
             // create an object with no prototype
             var dic = Object.create(null);
@@ -107,7 +109,7 @@ browser: true, node: true, devel: true, mocha: true
             }
 
             // step 2: split by key/value pair
-            var parts = str.split('&');
+            var parts = str.split(delimiter || '&');
 
             for (i = 0; i < parts.length; ++i) {
                 // step 3: split key/value pair
@@ -141,8 +143,10 @@ browser: true, node: true, devel: true, mocha: true
         /**
          * creates a query string from an object/dictionary.
          * @param {object} obj - the object that will have its properties parsed into a key/value string.
+         * @param {string} [delimiter] - if undefined (no value) the default ampersand '&' will be the pairs separator.
+         * Else you can provide an alternative separator, for instance the semicolon ';' in case of URLs embedded in HTML.
          */
-        stringify: function (obj) {
+        stringify: function (obj, delimiter) {
             var i, j;
             // sanity check
             if ((typeof obj !== 'object' && typeof obj !== 'function') || obj === null) { return ''; }
@@ -176,7 +180,7 @@ browser: true, node: true, devel: true, mocha: true
                 }
             }
             // concatenate final string
-            return list.join('&');
+            return list.join(delimiter || '&');
         }
     };
 
