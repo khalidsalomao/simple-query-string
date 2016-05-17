@@ -1,39 +1,46 @@
 {
-    "name": "simple-query-string",
-    "version": "1.2.5",
-    "description": "Fast and simple way to parse and stringify URL query strings",
-    "main": "src/simplequerystring.js",
-    "scripts": {
-        "test": "mocha ./spec/simplequerystring-tests.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/khalidsalomao/simple-query-string.git"
-    },
-    "keywords": [
-        "decode",
-        "encode",
-        "stringify",
-        "parse",
-        "uri",
-        "url",
-        "parameter",
-        "param",
-        "qs",
-        "query",
-        "querystring",
-        "query-string",
-        "simple-helpers"
-      ],
-    "author": "Khalid Salomão (https://github.com/khalidsalomao)",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/khalidsalomao/simple-query-string/issues"
-    },
-    "homepage": "https://github.com/khalidsalomao/simple-query-string#readme",
-    "devDependencies" : {
-        "chai" : "*",
-        "lodash" : "*",
-        "mocha" : "*"
-    }
+  "name": "simple-query-string",
+  "version": "1.2.5",
+  "description": "Fast and simple way to parse and stringify URL query strings",
+  "homepage": "https://github.com/khalidsalomao/simple-query-string#readme",
+  "author": {
+    "name": "Khalid Salomão",
+    "email": "khalidsalomao@gmail.com",
+    "url": "https://github.com/khalidsalomao/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khalidsalomao/simple-query-string.git"
+  },
+  "keywords": [
+    "decode",
+    "encode",
+    "stringify",
+    "parse",
+    "uri",
+    "url",
+    "parameter",
+    "param",
+    "qs",
+    "query",
+    "querystring",
+    "query-string",
+    "simple-helpers"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khalidsalomao/simple-query-string/issues"
+  },
+  "main": "src/simplequerystring.js",
+  "scripts": {
+    "test": "mocha ./spec/simplequerystring-tests.js"
+  },
+  "devDependencies": {
+    "benchmark": "*",
+    "chai": "*",
+    "colors": "*",
+    "express": "*",
+    "lodash": "*",
+    "mocha": "*"
+  }
 }
