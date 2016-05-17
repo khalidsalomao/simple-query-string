@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "benchmark": "*",
+    "bluebird": "*",
     "chai": "*",
     "colors": "*",
     "express": "*",
