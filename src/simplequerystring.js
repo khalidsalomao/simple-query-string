@@ -1,5 +1,12 @@
 /*! simple-query-string v1.2.4 - MIT license */
 
+/* jshint
+eqeqeq: true, undef: true, unused: true, indent: 4, plusplus: false, curly: false, forin: true, trailing: true, white: true, sub:true,
+browser: true, node: true, devel: true, mocha: true
+*/
+
+/* global define:true */
+
 //
 // Cross module loader - UMD (Universal Module Definition)
 // Supported: Node, AMD, Browser globals
@@ -17,7 +24,6 @@
         root.simpleQueryString = factory();
     }
 }(this, function () {
-    
     'use strict';
 
     // is Array polyfill: https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
@@ -26,11 +32,11 @@
             return Object.prototype.toString.call(vArg) === '[object Array]';
         };
     }
-    
+
     /**
      * Enumerate all object properties, ignoring prototype properties.
      * Internal method to encapsulate enumerate keys to avoid optimization problems in v8.
-     * 
+     *
      * @param   {object} obj - input object
      */
     function getKeys(obj) {
@@ -42,8 +48,8 @@
             }
         }
         return list;
-    }    
-    
+    }
+
     /**
      * internal method: uri string decoding
      */
@@ -66,7 +72,7 @@
     /**
      * return our simple Query String object
      */
-    return {     
+    return {
 
         /**
          * parse a query string.
