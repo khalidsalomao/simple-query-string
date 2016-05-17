@@ -146,9 +146,9 @@
 
             // sanity check
             if (!keys || !keys.length) { return ''; }
-            
+
             var list = [];
-            
+
             // enumerate key/values
             for (i = 0; i < keys.length; i++) {
                 var k = encode(keys[i]);
@@ -156,14 +156,9 @@
                 // check value type (ignore undefined and function)
                 if (v !== undefined && typeof v !== 'function') {
                     if (Array.isArray(v)) {
-                        var l2 = [];
                         for (j = 0; j < v.length; ++j) {
-                            var v2 = v[j];
-                            if (j !== undefined) {
-                                l2.push((j === null) ? k : k + '=' + encode(v2));
-                            }
+                            list.push(k + '=' + (v[j] ? encode(v[j]) : ''));
                         }
-                        list.push(l2.join('&'));
                     } else {
                         // try to encode
                         if (v !== null) {
@@ -178,5 +173,5 @@
             return list.join('&');
         }
     };
-    
+
 }));
