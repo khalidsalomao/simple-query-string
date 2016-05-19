@@ -1,4 +1,4 @@
-/*! simple-query-string v1.2.4 - MIT license */
+/*! simple-query-string v1.3-alpha - MIT license */
 
 /* jshint
 eqeqeq: true, undef: true, unused: true, indent: 4, plusplus: false, curly: false, forin: true, trailing: true, white: true, sub:true,
@@ -37,7 +37,7 @@ browser: true, node: true, devel: true, mocha: true
      * Enumerate all object properties, ignoring prototype properties.
      * Internal method to encapsulate enumerate keys to avoid optimization problems in v8.
      *
-     * @param   {object} obj - input object
+     * @param   {Object} obj - input object
      */
     function getKeys(obj) {
         var hasOwnProperty = Object.prototype.hasOwnProperty,
@@ -73,13 +73,16 @@ browser: true, node: true, devel: true, mocha: true
      * return our simple Query String object
      */
     return {
+        version: '1.3-alpha',
 
         /**
          * parse a query string.
-         * Can receive as parameter the full url or `url.split('?')[1]` or `location.search` or `location.hash`
-         * @param {string} str - the string containing the query string to be parsed.
-         * @param {string} [delimiter] - if undefined (no value) the default ampersand '&' will be the pairs separator.
+         * Can receive as parameter the full url or `url.split('?')[1]` or `location.search` or `location.hash`.
+         *
+         * @param {String} str - the string containing the query string to be parsed.
+         * @param {String} [delimiter] - if undefined (no value) the default ampersand '&' will be the pairs separator.
          * Else you can provide an alternative separator, for instance the semicolon ';' in case of URLs embedded in HTML.
+         * @returns {Object} parsed object (use as a dictionary)
          */
         parse: function (str, delimiter) {
             var i;
@@ -142,9 +145,11 @@ browser: true, node: true, devel: true, mocha: true
 
         /**
          * creates a query string from an object/dictionary.
-         * @param {object} obj - the object that will have its properties parsed into a key/value string.
-         * @param {string} [delimiter] - if undefined (no value) the default ampersand '&' will be the pairs separator.
+         *
+         * @param {Object} obj - the object that will have its properties parsed into a key/value string.
+         * @param {String} [delimiter] - if undefined (no value) the default ampersand '&' will be the pairs separator.
          * Else you can provide an alternative separator, for instance the semicolon ';' in case of URLs embedded in HTML.
+         * @returns {String} query string
          */
         stringify: function (obj, delimiter) {
             var i, j;

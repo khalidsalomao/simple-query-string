@@ -12,24 +12,24 @@ Utility javascript methods to encode and decode query string parameters with ext
 
 -----
 
-### Installation
+## Installation
 
 
-**NPM**
+#### NPM
 
 ```
 $ npm install simple-query-string --save
 ```
 
 
-**Bower**
+#### Bower
 
 ```
 $ bower install simple-query-string
 ```
 
 
-**Download**
+#### Download
 
 
 * [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.5/simplequerystring.js)
@@ -37,61 +37,73 @@ $ bower install simple-query-string
 * [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.2.5/simplequerystring.min.js)
 
 
-**Browser - CDN**
+#### Browser - CDN
 
-```
+```html
 <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.5/src/simplequerystring.min.js"></script>
 ```
 
 
-----
+-----
 
-### Features
-
-
-#### Query String Decoding
+## Features
 
 
-* **fast**
+### Query String Decoding
+
+
+* #### fast
 
     Several benchmarks are run at each release to ensure maximum performance.
 
 
-* **query string parsing**
+* #### query string parsing
 
-    `simpleQueryString.parse("key=val&param=1")`
+    ```javascript
+    simpleQueryString.parse("key=val&param=1")
+    ```
 
 
-* **full url** detection
+* #### url with query string detection
 
     There is no need to use `url.split('?')[1]` or any other code, just put the entire string!
 
-    `simpleQueryString.parse("http://example.org/test/?key=val&param=1")`
+    ```javascript
+    simpleQueryString.parse("http://example.org/test/?key=val&param=1")
+    ```
 
 
-* **location.hash** support
+* #### *location.hash* support
 
-    `simpleQueryString.parse(location.hash)`
-
-
-* **location.search** support
-
-    `simpleQueryString.parse(location.search)`
+    ```javascript
+    simpleQueryString.parse(location.hash)
+    ```
 
 
-* **array detection**
+* #### *location.search* support
 
-    `simpleQueryString.parse("myarr=1&myarr=2&myarr=3&myarr=4") // myarr: [1,2,3,4]`
-
-
-* **anchor detection**
-
-    `simpleQueryString.parse("http://example.org/test/?key=val&param=1#anchor") // #anchor will be ignored`
+    ```javascript
+    simpleQueryString.parse(location.search)
+    ```
 
 
-* **node.js** module
+* #### array detection
 
-```
+    ```javascript
+    simpleQueryString.parse("myarr=1&myarr=2&myarr=3&myarr=4") // myarr: [1,2,3,4]
+    ```
+
+
+* #### anchor detection
+
+    ```javascript
+    simpleQueryString.parse("http://example.org/test/?key=val&param=1#anchor") // #anchor will be ignored
+    ```
+
+
+* #### *node.js* module
+
+    ```javascript
     var qs = require('simple-query-string');
 
     var parsed = qs.parse("key=val&param=1");
@@ -99,132 +111,150 @@ $ bower install simple-query-string
     console.log(parsed["key"]);
     console.log(parsed["param"]);
 
-```
+    ```
 
 
-* **browser**
+* #### browser
 
-```
+    ```html
     <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.5/src/simplequerystring.js"></script>
     <script>
-        var parsed = simpleQueryString.parse("key=val&param=1");
+        var parsed = simpleQueryString.parse('key=val&param=1');
 
         console.log(parsed["key"]);
     </script>
-```
+    ```
 
-* **AMD module**
+* #### AMD module
 
-```
+    ```javascript
     require(['simple-query-string'], function(qs){
-        var p = qs.parse("key=val&param=1");
+        var p = qs.parse('key=val&param=1');
         console.log(p);
     });
-```
+    ```
 
-* **`for..in` safe**
+* #### `for..in` safe
 
     Safe to be used in a for in loop. The object is created with `Object.create(null)`.
 
-```
+    ```javascript
     var dic = simpleQueryString.parse("http://example.org/?p1=val&p2=true&p3=3&p4=str");
     for (var k in dic) {
         console.log(dic[k]);
     }
-
-```
-
-
-* **safely** deals with invalid/empty input
-
-    `simpleQueryString.parse(null) // equals to {}`
+    ```
 
 
-* **Custom delimiter**
+* #### *safely* deals with invalid/empty input
+
+    ```javascript
+    simpleQueryString.parse(null) // equals to {}
+    ```
+
+
+* #### Custom delimiter
 
     In some cases, you may want to use another separator instead of ampersand.
     Example using semicolon (';') as separator:
 
-    `simpleQueryString.parse('p1=a;p2=1', ';') // equals to '{ p1:'a', p2: 1}'`
+    ```javascript
+    simpleQueryString.parse('p1=a;p2=1', ';') // equals to '{ p1:'a', p2: 1}'
+    ```
 
 
-#### Query String Encoding
+### Query String Encoding
 
-* **fast**
+* #### fast
 
     Several benchmarks are run at each release to ensure maximum performance.
 
 
-* **properties detection**
+* #### properties detection
 
-    `simpleQueryString.stringify({ key: "val", param: 1 })  // equals to 'key=val&param=1'`
-
-
-* **type detection**
-
-    `simpleQueryString.stringify({ p: 1, p2: true, p3: false }) // equals to 'p=1&p2=true&p3=false'`
+    ```javascript
+    simpleQueryString.stringify({ key: "val", param: 1 })
+    //=> 'key=val&param=1'
+    ```
 
 
-* **array detection**
+* #### type detection
 
-    `simpleQueryString.stringify({ myarr: [1,2,3,4] }) // equals to 'myarr=1&myarr=2&myarr=3&myarr=4'`
+    ```javascript
+    simpleQueryString.stringify({ p: 1, p2: true, p3: false }) // equals to 'p=1&p2=true&p3=false'
+    ```
 
 
-* **node.js** module
+* #### array encoding
 
-```
+    ```javascript
+    simpleQueryString.stringify({ myarr: [1,2,3,4] }) // equals to 'myarr=1&myarr=2&myarr=3&myarr=4'
+    ```
+
+
+* #### *node.js* module
+
+    ```javascript
     var qs = require('simple-query-string');
 
     var str = qs.stringify({ param: 1, p2: true, p3: false });
 
     console.log(str); // equals to 'param=1&p2=true&p3=false'
 
-```
+    ```
 
 
-* **browser**
+* #### browser
 
-```
+    ```html
     <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.2.5/src/simplequerystring.js"></script>
     <script>
         var str = simpleQueryString.stringify({ param: 1, p2: true, p3: false });
 
         console.log(str);
     </script>
-```
+    ```
 
 
-* **AMD module**
+* #### AMD module
 
-```
+    ```javascript
     require(['simple-query-string'], function(qs){
         var str = qs.stringify({ param: 1, p2: true, p3: false });
         console.log(str);
     });
-```
+    ```
 
 
-* **safely** ignore functions and prototype properties
+* #### *safely* ignore functions and prototype properties
 
-    `simpleQueryString.stringify({ p1: function(){ return 0; }, p2: 1 }) // equals to 'p2=1'`
+    ```javascript
+    simpleQueryString.stringify({ p1: function(){ return 0; }, p2: 1 }) // equals to 'p2=1'
+    ```
 
 
-* **safely** deals with invalid/empty input
+* #### *safely* deals with invalid/empty input
 
-    `simpleQueryString.stringify(null) // equals to ''`
+    ```javascript
+    simpleQueryString.stringify(null) // equals to ''
+    ```
 
-* **Custom delimiter**
+* #### Custom delimiter
 
     In some cases, you may want to use another separator instead of ampersand.
     Example using semicolon (';') as separator:
 
-    `simpleQueryString.stringify({ p1: 'a', p2: 1 }, ';') // equals to 'p1=a;p2=1'`
+    ```javascript
+    simpleQueryString.stringify({ p1: 'a', p2: 1 }, ';') // equals to 'p1=a;p2=1'
+    ```
 
+-----
 
-### Getting Started
+## Getting Started
 
 Decode example:
-```
+
+```javascript
 var obj = simpleQueryString.parse("http://example.org/test/?key=val&param=1");
 
 // obj["key"] === "val"
@@ -235,7 +265,8 @@ var obj = simpleQueryString.parse("http://example.org/test/?key=val&param=1");
 
 
 Encode example:
-```
+
+```javascript
 var p = {
     key1: true,
     key2: [0, 1, 2],
@@ -248,19 +279,20 @@ var qStr = simpleQueryString.stringify(p);
 ```
 
 -----
-### How to Test
+
+## How to Test
 
 
-#### Node.js
+### Node.js
 
-##### Install dependencies
+#### Install dependencies
 
 ```
 $ npm install mocha -g
 ```
 
 
-##### Run tests in node.js
+#### Run tests in node.js
 
 Use npm to run the test script 'spec/simplequerystring-test.js'
 
@@ -269,17 +301,14 @@ $ npm test
 ```
 
 
-#### Browser
-
-
-##### Run tests in browser
+#### Run tests in any browser
 
 Run the tests by opening `./spec/testpage.html`.
 
 
 -----
 
-### Query string reference
+## Query string references
 
 Some documentation for future reference.
 
@@ -306,17 +335,18 @@ Some documentation for future reference.
 Some relevant parts of the documentation for future reference.
 
 
-https://tools.ietf.org/html/rfc3986#section-3.4
+<https://tools.ietf.org/html/rfc3986#section-3.4>
 
 > The query component is indicated by the first question
 mark ("?") character and terminated by a number sign ("#") character
 or by the end of the URI
 
-https://tools.ietf.org/html/rfc3986#section-4.2
+<https://tools.ietf.org/html/rfc3986#section-4.2>
 
 > relative-ref  = relative-part [ "?" query ] [ "#" fragment ]
 
+-----
 
-### License
+## License
 
 MIT © 2016 Khalid Salomão
