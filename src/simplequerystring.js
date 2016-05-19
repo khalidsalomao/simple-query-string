@@ -1,4 +1,4 @@
-/*! simple-query-string v1.3-alpha - MIT license */
+/*! simple-query-string v1.3-beta - MIT license */
 
 /* jshint
 eqeqeq: true, undef: true, unused: true, indent: 4, plusplus: false, curly: false, forin: true, trailing: true, white: true, sub:true,
@@ -73,7 +73,7 @@ browser: true, node: true, devel: true, mocha: true
      * return our simple Query String object
      */
     return {
-        version: '1.3-alpha',
+        version: '1.3-beta',
 
         /**
          * parse a query string.
@@ -82,10 +82,13 @@ browser: true, node: true, devel: true, mocha: true
          * @param {String} str - the string containing the query string to be parsed.
          * @param {String} [delimiter] - if undefined (no value) the default ampersand '&' will be the pairs separator.
          * Else you can provide an alternative separator, for instance the semicolon ';' in case of URLs embedded in HTML.
+         * @param {String} [eq] - key/pair separator.
          * @returns {Object} parsed object (use as a dictionary)
          */
-        parse: function (str, delimiter) {
+        parse: function (str, delimiter, eq) {
             var i;
+            delimiter = delimiter || '&';
+            eq = eq || '=';
             // create an object with no prototype
             var dic = Object.create(null);
 
@@ -112,18 +115,18 @@ browser: true, node: true, devel: true, mocha: true
             }
 
             // step 2: split by key/value pair
-            var parts = str.split(delimiter || '&');
+            var parts = str.split(delimiter);
 
             for (i = 0; i < parts.length; ++i) {
                 // step 3: split key/value pair
-                var s = parts[i].replace(/\+/g, ' ').split('=');
+                var s = parts[i].replace(/\+/g, ' ').split(eq);
 
                 // key
                 var key = decode(s.shift());
                 if (!key) { continue; }
 
                 // Firefox (pre 40) decodes `%3D` to `=`
-                var val = s.length > 1 ? s.join('=') : s[0];
+                var val = s.length > 1 && eq === '=' ? s.join(eq) : s[0];
 
                 // missing `=` should be `null`:
                 val = decode(val);
@@ -151,8 +154,11 @@ browser: true, node: true, devel: true, mocha: true
          * Else you can provide an alternative separator, for instance the semicolon ';' in case of URLs embedded in HTML.
          * @returns {String} query string
          */
-        stringify: function (obj, delimiter) {
+        stringify: function (obj, delimiter, eq) {
             var i, j;
+            delimiter = delimiter || '&';
+            eq = eq || '=';
+
             // sanity check
             if ((typeof obj !== 'object' && typeof obj !== 'function') || obj === null) { return ''; }
 
@@ -172,7 +178,7 @@ browser: true, node: true, devel: true, mocha: true
                 if (v !== undefined && typeof v !== 'function') {
                     if (Array.isArray(v)) {
                         for (j = 0; j < v.length; ++j) {
-                            list.push(k + '=' + (v[j] ? encode(v[j]) : ''));
+                            list.push(k + eq + (v[j] ? encode(v[j]) : ''));
                         }
                     } else {
                         // try to encode
@@ -180,12 +186,12 @@ browser: true, node: true, devel: true, mocha: true
                             v = encode(v);
                         }
                         // check final v value and add to list
-                        list.push((v === null || v === undefined) ? k : k + '=' + v);
+                        list.push((v === null || v === undefined) ? k : k + eq + v);
                     }
                 }
             }
             // concatenate final string
-            return list.join(delimiter || '&');
+            return list.join(delimiter);
         }
     };
 
