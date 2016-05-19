@@ -50,7 +50,7 @@ function generateQS(count, options) {
     var numeric = !!options.numeric;
     var i = 0;
     for (; i < count; i++) {
-        qs += encodeURIComponent(randomString(randomInt(sz))) + '=' + encodeURIComponent(!numeric ? randomString(randomInt(sz) + sz) : randomNumber(sz * 2)) + '&';
+        qs += encodeURIComponent(randomString(randomInt(sz) + (sz/3))) + '=' + encodeURIComponent(!numeric ? randomString(randomInt(sz) + sz) : randomNumber(sz * 2)) + '&';
     }
     return qs;
 }

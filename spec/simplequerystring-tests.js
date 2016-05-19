@@ -125,12 +125,12 @@ describe('simple-query-string - parse', function () {
     });
 
     it('parse validation: random qs strings', function () {
-        var i = 0;
+        var i = 0, keyCount = 30;
         for (;i < 3; i++)
         {
-            var qs = utils.generateQS(30, { large: false });
+            var qs = utils.generateQS(keyCount, { large: false });
             var obj = simpleQueryString.parse(qs);
-            assert.strictEqual(_.keys(obj).length, 30);
+            assert.strictEqual(_.keys(obj).length, keyCount);
         }
     });
 

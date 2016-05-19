@@ -28,17 +28,16 @@ var qsObj = qs.parse(qsData);
 var qsObjNumeric = qs.parse(utils.generateQS(50, { large: false, numeric: true }));
 
 // our benchmark codes
-
 function benchmarkParse_qsData(qs) {
-    for(let i = 0; i < 5; i++) qs.parse(qsData);
+    qs.parse(qsData);
 }
 
 function benchmarkStringify_qsObj(qs) {
-    for(let i = 0; i < 5; i++) qs.stringify(qsObj);
+    qs.stringify(qsObj);
 }
 
 function benchmarkStringify_qsObjNumeric(qs) {
-    for(let i = 0; i < 5; i++) qs.stringify(qsObjNumeric);
+    qs.stringify(qsObjNumeric);
 }
 
 // our bootstrap method
