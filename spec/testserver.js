@@ -3,11 +3,14 @@ eqeqeq: true, undef: true, unused: true, indent: 4, plusplus: false, curly: fals
 browser: true, node: true, devel: true, mocha: true
 */
 
-var express = require('express');
-var app = express();
+var koa = require('koa');
+var app = koa();
 
-app.use('/', express.static('./'));
+var staticfiles = require('koa-static');
 
-app.listen(8080, function () {
-  console.log('Test page server app listening on port 8080!');
-});
+// $ GET /everything
+app.use(staticfiles('.'));
+
+app.listen(8080);
+
+console.log('Test page server app listening on port 8080!');

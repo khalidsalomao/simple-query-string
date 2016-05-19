@@ -2,14 +2,14 @@
 eqeqeq: true, undef: true, unused: true, indent: 4, plusplus: false, curly: false, forin: true, trailing: true, white: true, sub:true,
 browser: true, node: true, devel: true, mocha: true
 */
-/* global simple-query-string tests, describe, it, expect, should, require */
+/* global describe, it, require */
 
 // if these vars are undefined, assume we are in node.js
 if (!expect) { var expect = require('chai').expect; }
 if (!assert) { var assert = require('chai').assert; }
 if (!simpleQueryString) { var simpleQueryString = require('../src/simplequerystring.js'); }
 if (!_) { var _ = require("lodash"); }
-
+if (!utils) { var utils = require('../spec/test-utils.js'); }
 
 // run tests!
 describe('simple-query-string - parse', function () {
@@ -39,8 +39,32 @@ describe('simple-query-string - parse', function () {
         expect(_.keys(obj).length).to.equal(0);
 
         obj = simpleQueryString.parse('//example.org/teste#anchor');
-        expect(obj).to.be.a('object');
         expect(_.keys(obj).length).to.equal(0);
+
+        obj = simpleQueryString.parse('//example.org/teste?');
+        expect(_.keys(obj).length).to.equal(0);
+
+        obj = simpleQueryString.parse('//example.org/teste?#');
+        expect(_.keys(obj).length).to.equal(0);
+
+        obj = simpleQueryString.parse('//example.org/teste??#??');
+        expect(_.keys(obj).length).to.equal(0);
+    });
+
+    it('parse validation: simple query string', function () {
+        var obj = simpleQueryString.parse('http://example.org?k1=val&k2=val2');
+        assert.strictEqual(obj["k1"], "val");
+        assert.strictEqual(obj["k2"], "val2");
+        assert.strictEqual(_.keys(obj).length, 2);
+
+        obj = simpleQueryString.parse('http://example.org????k1=val&k2=val2');
+        assert.strictEqual(obj["k1"], "val");
+        assert.strictEqual(obj["k2"], "val2");
+        assert.strictEqual(_.keys(obj).length, 2);
+
+        obj = simpleQueryString.parse('http://example.org?k1===val&&&k2=val2&');
+        assert.strictEqual(obj["k1"], "==val");
+        assert.strictEqual(_.keys(obj).length, 2);
     });
 
     it('parse validation: with anchor', function () {
@@ -50,12 +74,19 @@ describe('simple-query-string - parse', function () {
     });
 
     it('parse validation: string with spaces', function () {
-        var obj = simpleQueryString.parse('str=my string with double  spaces&str2=my other string&b1=true&nullkey');
+        var obj = simpleQueryString.parse('str=my string with double  spaces&string key with spaces= my other string &b1=true&nullkey&emptykey=');
 
         assert.strictEqual(obj["str"], 'my string with double  spaces');
-        assert.strictEqual(obj["str2"], 'my other string');
+        assert.strictEqual(obj["string key with spaces"], ' my other string ');
         assert.strictEqual(obj["b1"], 'true');
         assert.isNull(obj["nullkey"]);
+        assert.strictEqual(obj["emptykey"], '');
+
+        // now lets test encoded white space
+        obj = simpleQueryString.parse('str=my%20string%20with%20double%20%20spaces&string%20key%20with%20spaces=%20my%20other%20string%20');
+
+        assert.strictEqual(obj["str"], 'my string with double  spaces');
+        assert.strictEqual(obj["string key with spaces"], ' my other string ');
     });
 
     it('parse validation: parameters as array', function () {
@@ -93,6 +124,25 @@ describe('simple-query-string - parse', function () {
         assert.isUndefined(obj["k2"]);
     });
 
+    it('parse validation: random qs strings', function () {
+        var i = 0;
+        for (;i < 3; i++)
+        {
+            var qs = utils.generateQS(30, { large: false });
+            var obj = simpleQueryString.parse(qs);
+            assert.strictEqual(_.keys(obj).length, 30);
+        }
+    });
+
+    it('parse validation: random qs with numbers', function () {
+        var i = 0;
+        for (;i < 3; i++)
+        {
+            var qs = utils.generateQS(30, { large: false, numeric: true });
+            var obj = simpleQueryString.parse(qs);
+            assert.strictEqual(_.keys(obj).length, 30);
+        }
+    });
 });
 
 
