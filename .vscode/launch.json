@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
+            "name": "Benchmark",
             "type": "node",
             "request": "launch",
             "program": "${workspaceRoot}/spec/benchmarks.js",
@@ -20,18 +20,23 @@
             "externalConsole": false,
             "sourceMaps": false,
             "outDir": null
-        },
-        {
-            "name": "Attach",
+        },{
+            "name": "app-debug",
             "type": "node",
-            "request": "attach",
-            "port": 5858,
-            "address": "localhost",
-            "restart": false,
+            "request": "launch",
+            "program": "${workspaceRoot}/spec/app-debug.js",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "externalConsole": false,
             "sourceMaps": false,
-            "outDir": null,
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
+            "outDir": null
         }
     ]
 }
