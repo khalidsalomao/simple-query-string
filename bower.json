@@ -1,6 +1,6 @@
 {
 	"name" : "simple-query-string",
-	"version" : "1.3.0-beta",
+	"version" : "1.3.0",
     "description": "Fast and simple way to parse and stringify URL query strings",
 	"dependencies" : {},
 	"devDependencies" : {

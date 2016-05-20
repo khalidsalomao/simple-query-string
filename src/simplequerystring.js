@@ -1,4 +1,4 @@
-/*! simple-query-string v1.3-beta - MIT license */
+/*! simple-query-string v1.3.0 - MIT license */
 
 /* jshint
 eqeqeq: true, undef: true, unused: true, indent: 4, plusplus: false, curly: false, forin: true, trailing: true, white: true, sub:true,
@@ -83,7 +83,7 @@ browser: true, node: true, devel: true, mocha: true
      * return our simple Query String object
      */
     return {
-        version: '1.3-beta',
+        version: '1.3.0',
 
         /**
          * parse a query string.
@@ -136,12 +136,12 @@ browser: true, node: true, devel: true, mocha: true
                 var key, val;
 
                 // key must exist
-                if (p === 0 || s.length === 0){
+                if (p === 0 || s.length === 0) {
                     continue;
                 }
 
                 // split
-                if (p < 0){
+                if (p < 0) {
                     key = decode(s);
                     val = null; // missing `=` should be `null`:
                 } else {

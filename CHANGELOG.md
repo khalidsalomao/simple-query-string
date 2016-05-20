@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 [unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/1.3.0...HEAD
 
 
-### [unreleased]
+### [1.3.0]
 
 - Performance improvement
 - Memory footprint reduced
