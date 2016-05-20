@@ -63,10 +63,20 @@ browser: true, node: true, devel: true, mocha: true
      * internal method: uri string encoding with type convertion to string
      */
     function encode(v) {
-        if (v === undefined || v === null) { return ''; }
-        if (typeof v === 'string') { return encodeURIComponent(v); }
-        if (JSON && JSON.stringify) { return encodeURIComponent(JSON.stringify(v)); }
-        return encodeURIComponent(v.toString());
+        switch (typeof v) {
+            case 'string':
+                return encodeURIComponent(v);
+            case 'boolean':
+                return v ? 'true' : 'false';
+            case 'number':
+                return isFinite(v) ? v : '';
+            case 'object':
+                if (v === undefined || v === null) { return ''; }
+                if (JSON && JSON.stringify) { return encodeURIComponent(JSON.stringify(v)); }
+                return '';
+            default:
+                return '';
+        }
     }
 
     /**
