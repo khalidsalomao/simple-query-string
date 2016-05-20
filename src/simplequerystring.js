@@ -100,8 +100,10 @@ browser: true, node: true, devel: true, mocha: true
             i = str.indexOf('?');
             if (i >= 0) {
                 str = str.substr(i + 1);
-            } else if (str.indexOf('=') < 0) {
-                // detect if we have or not a query string
+            }
+
+            // detect if we have or not a query string
+            if (str.indexOf(eq) < 0) {
                 return dic;
             }
 
@@ -119,17 +121,23 @@ browser: true, node: true, devel: true, mocha: true
 
             for (i = 0; i < parts.length; ++i) {
                 // step 3: split key/value pair
-                var s = parts[i].replace(/\+/g, ' ').split(eq);
+                var s = parts[i].replace(/\+/g, ' ');
+                var p = s.indexOf(eq);
+                var key, val;
 
-                // key
-                var key = decode(s.shift());
-                if (!key) { continue; }
+                // key must exist
+                if (p === 0 || s.length === 0){
+                    continue;
+                }
 
-                // Firefox (pre 40) decodes `%3D` to `=`
-                var val = s.length > 1 && eq === '=' ? s.join(eq) : s[0];
-
-                // missing `=` should be `null`:
-                val = decode(val);
+                // split
+                if (p < 0){
+                    key = decode(s);
+                    val = null; // missing `=` should be `null`:
+                } else {
+                    key = decode(s.substr(0, p));
+                    val = decode(s.substr(p + 1));
+                }
 
                 // check existing dic and add
                 var e = dic[key];
@@ -155,7 +163,6 @@ browser: true, node: true, devel: true, mocha: true
          * @returns {String} query string
          */
         stringify: function (obj, delimiter, eq) {
-            var i, j;
             delimiter = delimiter || '&';
             eq = eq || '=';
 
@@ -169,11 +176,12 @@ browser: true, node: true, devel: true, mocha: true
             if (!keys || !keys.length) { return ''; }
 
             var list = [];
+            var i = 0, j, k, v;
 
             // enumerate key/values
-            for (i = 0; i < keys.length; i++) {
-                var k = encode(keys[i]);
-                var v = obj[k];
+            for (; i < keys.length; i++) {
+                k = encode(keys[i]);
+                v = obj[k];
                 // check value type (ignore undefined and function)
                 if (v !== undefined && typeof v !== 'function') {
                     if (Array.isArray(v)) {
