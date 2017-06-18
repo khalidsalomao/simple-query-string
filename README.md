@@ -32,15 +32,15 @@ $ bower install simple-query-string
 #### Download
 
 
-* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.3.2/simplequerystring.js)
+* [simplequerystring.js - development](https://raw.githubusercontent.com/khalidsalomao/simple-query-string/master/src/simplequerystring.js)
 
-* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.3.2/simplequerystring.min.js)
+* [simplequerystring.min.js - production](https://raw.githubusercontent.com/khalidsalomao/simple-query-string/master/src/simplequerystring.min.js)
 
 
 #### Browser - CDN
 
 ```html
-<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/39268514/src/simplequerystring.min.js"></script>
+<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/22cc5bbe/src/simplequerystring.min.js"></script>
 ```
 
 
@@ -117,7 +117,7 @@ $ bower install simple-query-string
 * #### browser
 
     ```html
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/39268514/src/simplequerystring.min.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/22cc5bbe/src/simplequerystring.min.js"></script>
     <script>
         var parsed = simpleQueryString.parse('key=val&param=1');
 
@@ -207,7 +207,7 @@ $ bower install simple-query-string
 * #### browser
 
     ```html
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/39268514/src/simplequerystring.min.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/22cc5bbe/src/simplequerystring.min.js"></script>
     <script>
         var str = simpleQueryString.stringify({ param: 1, p2: true, p3: false });
 
