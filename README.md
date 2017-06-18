@@ -32,9 +32,9 @@ $ bower install simple-query-string
 #### Download
 
 
-* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.3.1/simplequerystring.js)
+* [simplequerystring.js - development](https://github.com/khalidsalomao/simple-query-string/releases/download/1.3.2/simplequerystring.js)
 
-* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.3.1/simplequerystring.min.js)
+* [simplequerystring.min.js - production](https://github.com/khalidsalomao/simple-query-string/releases/download/1.3.2/simplequerystring.min.js)
 
 
 #### Browser - CDN

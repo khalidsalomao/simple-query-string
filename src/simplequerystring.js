@@ -1,4 +1,4 @@
-/*! simple-query-string v1.3.1 - MIT license */
+/*! simple-query-string v1.3.2 - MIT license */
 
 /* jshint
 eqeqeq: true, undef: true, unused: true, indent: 4, plusplus: false, curly: false, forin: true, trailing: true, white: true, sub:true,
@@ -83,7 +83,7 @@ browser: true, node: true, devel: true, mocha: true
      * return our simple Query String object
      */
     return {
-        version: '1.3.1',
+        version: '1.3.2',
 
         /**
          * parse a query string.
