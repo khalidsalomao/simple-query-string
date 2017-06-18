@@ -57,6 +57,29 @@ describe('simple-query-string - parse', function () {
         assert.strictEqual(obj["k2"], "val2");
         assert.strictEqual(_.keys(obj).length, 2);
 
+        obj = simpleQueryString.parse('http://example.org?k1=val&k2');
+        assert.strictEqual(obj["k1"], "val");
+        assert.strictEqual(obj["k2"], null);
+        assert.strictEqual(_.keys(obj).length, 2);
+
+        obj = simpleQueryString.parse('?k1=val&k2');
+        assert.strictEqual(obj["k1"], "val");
+        assert.strictEqual(obj["k2"], null);
+        assert.strictEqual(_.keys(obj).length, 2);
+
+        obj = simpleQueryString.parse('k1=val&k2');
+        assert.strictEqual(obj["k1"], "val");
+        assert.strictEqual(obj["k2"], null);
+        assert.strictEqual(_.keys(obj).length, 2);
+
+        obj = simpleQueryString.parse('http://example.org?k1');
+        assert.strictEqual(obj["k1"], null);
+        assert.strictEqual(_.keys(obj).length, 1);
+
+        obj = simpleQueryString.parse('?k1');
+        assert.strictEqual(obj["k1"], null);
+        assert.strictEqual(_.keys(obj).length, 1);
+
         obj = simpleQueryString.parse('http://example.org????k1=val&k2=val2');
         assert.strictEqual(obj["k1"], "val");
         assert.strictEqual(obj["k2"], "val2");
