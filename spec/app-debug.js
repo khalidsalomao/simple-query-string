@@ -5,5 +5,5 @@ console.log(str);
 //=> { key1: 'val1', key2: '100' }
 
 var dic = qs.stringify({ key1: 'val1', key2: 100, key3: true, key4: null, key5: undefined });
-console.log(str);
+console.log(dic);
 //=> 'key1=val1&key2=100&key3=true'

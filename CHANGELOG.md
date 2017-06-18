@@ -3,8 +3,14 @@
 All notable changes to this project will be documented in this file.
 
 
-[unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/1.3.0...HEAD
+[unreleased]: https://github.com/khalidsalomao/simple-query-string/compare/1.3.1...HEAD
 
+
+### [1.3.1]
+
+- Deal single param without delimiter. Fixing issue #https://github.com/khalidsalomao/simple-query-string/issues/1
+
+[v1.3.1]: https://github.com/khalidsalomao/simple-query-string/compare/1.3.0...1.3.1
 
 ### [1.3.0]
 

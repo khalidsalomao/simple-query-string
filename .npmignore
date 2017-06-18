@@ -3,3 +3,4 @@ spec
 bower*
 node_modules
 test*
+jsconfig.json
