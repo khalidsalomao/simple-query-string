@@ -40,7 +40,7 @@ $ bower install simple-query-string
 #### Browser - CDN
 
 ```html
-<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.3.1/src/simplequerystring.min.js"></script>
+<script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/39268514/src/simplequerystring.min.js"></script>
 ```
 
 
@@ -117,7 +117,7 @@ $ bower install simple-query-string
 * #### browser
 
     ```html
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.3.0/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/39268514/src/simplequerystring.min.js"></script>
     <script>
         var parsed = simpleQueryString.parse('key=val&param=1');
 
@@ -207,7 +207,7 @@ $ bower install simple-query-string
 * #### browser
 
     ```html
-    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/1.3.0/src/simplequerystring.js"></script>
+    <script src="https://cdn.rawgit.com/khalidsalomao/simple-query-string/39268514/src/simplequerystring.min.js"></script>
     <script>
         var str = simpleQueryString.stringify({ param: 1, p2: true, p3: false });
 
