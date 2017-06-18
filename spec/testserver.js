@@ -14,3 +14,4 @@ app.use(staticfiles('.'));
 app.listen(8080);
 
 console.log('Test page server app listening on port 8080!');
+console.log('Go to http://localhost:8080/spec/testpage.html');

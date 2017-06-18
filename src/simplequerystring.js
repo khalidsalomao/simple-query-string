@@ -64,18 +64,18 @@ browser: true, node: true, devel: true, mocha: true
      */
     function encode(v) {
         switch (typeof v) {
-            case 'string':
-                return encodeURIComponent(v);
-            case 'boolean':
-                return v ? 'true' : 'false';
-            case 'number':
-                return isFinite(v) ? v : '';
-            case 'object':
-                if (v === undefined || v === null) { return ''; }
-                if (JSON && JSON.stringify) { return encodeURIComponent(JSON.stringify(v)); }
-                return '';
-            default:
-                return '';
+        case 'string':
+            return encodeURIComponent(v);
+        case 'boolean':
+            return v ? 'true' : 'false';
+        case 'number':
+            return isFinite(v) ? v : '';
+        case 'object':
+            if (v === undefined || v === null) { return ''; }
+            if (JSON && JSON.stringify) { return encodeURIComponent(JSON.stringify(v)); }
+            return '';
+        default:
+            return '';
         }
     }
 

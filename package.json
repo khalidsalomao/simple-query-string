@@ -35,6 +35,8 @@
   "scripts": {
     "publish": "npm test && npm run build && npm publish",
     "build": "node_modules/uglify-js/bin/uglifyjs src/simplequerystring.js -o src/simplequerystring.min.js --mangle --compress",
+    "lint": "node node_modules/eslint/bin/eslint.js src/simplequerystring.js",
+    "start": "node spec/testserver.js",
     "test": "mocha ./spec/simplequerystring-tests.js"
   },
   "tonicExampleFilename": "src/example.js",
@@ -43,13 +45,12 @@
     "bluebird": "*",
     "chai": "*",
     "colors": "*",
+    "eslint": "^4.0.0",
     "got": "^6.3.0",
     "koa": "^1.2.0",
     "koa-static": "^2.0.0",
     "lodash": "*",
-    "mocha": "*"
-  },
-  "dependencies": {
+    "mocha": "*",
     "uglify-js": "^3.0.17"
   }
 }
